@@ -22,7 +22,7 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
 import LogoutButton from "@/components/LogoutButton.vue";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names

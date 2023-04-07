@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import navigation from '@/components/navigation.vue'
 import MyFooter from '@/components/footer.vue'
 import loginImage from "@/components/images/movie.jpg"
