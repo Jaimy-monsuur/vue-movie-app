@@ -8,7 +8,8 @@
         <div class="row d-flex justify-content-end">
           <h1 class="card-title col-md-10">All Movies</h1>
           <div class="col-md-2">
-            <router-link v-if="$store.state.user.role === 'admin'" to="/movie/add/" class="btn btn-primary mt-1 mb-2">Add Movie</router-link>
+            <router-link v-if="//@ts-ignore
+                                store.state.user.role === 'admin'" to="/movie/add/" class="btn btn-primary mt-1 mb-2">Add Movie</router-link>
           </div>
 
         </div>
@@ -24,8 +25,10 @@
               </ul>
               <div class="card-footer">
                 <router-link :to="{ name: 'MovieDetails', params: { id: movie.ID } }" class="btn btn-primary">Details</router-link>
-                <router-link v-if="store.state.user.role === 'admin'" :to="{ name: 'EditMovieView', params: { id: movie.ID } }" class="btn btn-success m-2">Edit</router-link>
-                <button v-if="movie.Reviews.length === 0 && store.state.user.role === 'admin'" @click="deleteMovie(movie.ID)" class="btn btn-danger m-2">Delete</button>
+                <router-link v-if="//@ts-ignore
+                                  store.state.user.role === 'admin'" :to="{ name: 'EditMovieView', params: { id: movie.ID } }" class="btn btn-success m-2">Edit</router-link>
+                <button v-if="//@ts-ignore
+                              movie.Reviews.length === 0 && store.state.user.role === 'admin'" @click="deleteMovie(movie.ID)" class="btn btn-danger m-2">Delete</button>
               </div>
             </div>
           </div>

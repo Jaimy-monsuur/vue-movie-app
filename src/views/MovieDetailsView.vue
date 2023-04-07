@@ -23,9 +23,11 @@
               <div class="card-body">
                 <h6 class="card-subtitle mb-2 text-muted">{{ review.Rating }} stars, User: {{review.User.Email}}</h6>
                 <p class="card-text">{{ review.Content }}</p>
-                <router-link v-if="review.User.ID === store.state.user.id" :to="{ name: 'EditReviewView', params: { id: review.ID } }" class="btn btn-warning m-2">Update</router-link>
+                <router-link v-if="//@ts-ignore
+                                  review.User.ID === store.state.user.id" :to="{ name: 'EditReviewView', params: { id: review.ID } }" class="btn btn-warning m-2">Update</router-link>
                 <!-- Add delete button for admin users -->
-                <button v-if="store.state.user.role === 'admin'" @click="deleteReview(review.ID)" class="btn btn-danger">Delete</button>
+                <button v-if="//@ts-ignore
+                              store.state.user.role === 'admin'" @click="deleteReview(review.ID)" class="btn btn-danger">Delete</button>
               </div>
             </div>
           </li>

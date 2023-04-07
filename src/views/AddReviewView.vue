@@ -78,11 +78,14 @@ export default defineComponent({
       };
 
       const newReview: AddReview = {
+        //@ts-ignore
         MovieId: movie2.ID,
         MovieName: movie2.Title,
         review: review.value,
         Rating: rating.value,
+        //@ts-ignore
         userID: user.id,
+        //@ts-ignore
         username: user.email
       }
 
