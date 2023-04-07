@@ -24,8 +24,8 @@
               </ul>
               <div class="card-footer">
                 <router-link :to="{ name: 'MovieDetails', params: { id: movie.ID } }" class="btn btn-primary">Details</router-link>
-                <router-link v-if="$store.state.user.role === 'admin'" :to="{ name: 'EditMovieView', params: { id: movie.ID } }" class="btn btn-success m-2">Edit</router-link>
-                <button v-if="movie.Reviews.length === 0 && $store.state.user.role === 'admin'" @click="deleteMovie(movie.ID)" class="btn btn-danger m-2">Delete</button>
+                <router-link v-if="store.state.user.role === 'admin'" :to="{ name: 'EditMovieView', params: { id: movie.ID } }" class="btn btn-success m-2">Edit</router-link>
+                <button v-if="movie.Reviews.length === 0 && store.state.user.role === 'admin'" @click="deleteMovie(movie.ID)" class="btn btn-danger m-2">Delete</button>
               </div>
             </div>
           </div>
@@ -51,9 +51,15 @@ import movieService from '@/services/movieService'
 import type { MovieComplete } from '@/interfaces/movie'
 import Navigation from "@/components/navigation.vue";
 import MyFooter from "@/components/footer.vue";
+import store from "@/store";
 
 export default defineComponent({
   name: 'MovieList',
+  computed: {
+    store() {
+      return store
+    }
+  },
   components: {MyFooter, Navigation},
   data() {
     return {
